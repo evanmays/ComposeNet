@@ -45,6 +45,7 @@ tf.flags.DEFINE_boolean("reset", False, "If set, delete the existing model direc
 tf.flags.DEFINE_integer("parallelism", 5, "Number of threads to run. If not set we run [num_cpu_cores] threads.")
 
 FLAGS = tf.flags.FLAGS
+FLAGS(sys.argv)
 
 def key_func(var):
   """

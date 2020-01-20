@@ -15,6 +15,7 @@ import shutil
 import threading
 import multiprocessing
 from datetime import datetime
+from make_env import make_env
 
 from inspect import getsourcefile
 current_path = os.path.dirname(os.path.abspath(getsourcefile(lambda:0)))
@@ -42,6 +43,7 @@ tf.flags.DEFINE_boolean("reset", False, "If set, delete the existing model direc
 tf.flags.DEFINE_integer("parallelism", 5, "Number of threads to run. If not set we run [num_cpu_cores] threads.")
 
 FLAGS = tf.flags.FLAGS
+FLAGS(sys.argv)
 
 # determine number of actions from environment
 env_ = make_env(FLAGS.env, FLAGS.task)
